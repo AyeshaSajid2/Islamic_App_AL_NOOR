@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:the_light_al_noor/features/Hadith/hadith_screen.dart';
+import 'package:the_light_al_noor/main_screen/home_screen.dart';
 import 'package:the_light_al_noor/onboarding/splash_screen.dart';
+import 'package:hadith/hadith.dart';
 
-void main() {
+void main()
+{
   runApp(const MyApp());
 }
 

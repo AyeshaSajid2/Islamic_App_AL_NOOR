@@ -16,7 +16,7 @@ class _PrayerTrackerState extends State<PrayerTracker> {
     return SizedBox(
       width: 300,
       child: Container(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
           color: Colors.blueGrey, // Use your color here
           borderRadius: BorderRadius.circular(12.0),
@@ -26,7 +26,7 @@ class _PrayerTrackerState extends State<PrayerTracker> {
           mainAxisSize: MainAxisSize.min, // Adjust the mainAxisSize
           children: [
             const Text(
-              'Prayer Tracker',
+              'Salah Tracker',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class _PrayerTrackerState extends State<PrayerTracker> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   _buildImageWithCheckbox('assets/images/praying_time/svg/morning.svg', 'Fajar', context),
                   _buildImageWithCheckbox('assets/images/praying_time/svg/noon.svg', 'Duhr', context),
@@ -72,14 +72,14 @@ class _PrayerTrackerState extends State<PrayerTracker> {
             _selectedCheckBoxCount++;
           }
         });
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('ٱلْحَمْدُ لِلَّٰهِ')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('ٱلْحَمْدُ لِلَّٰهِ'),));
       },
       child: Stack(
         alignment: Alignment.center,
         children: [
           SvgPicture.asset(
             imagePath,
-            height: 80,
+            height: 90, width: 90,
           ),
           Positioned(
             bottom: 5, // Adjust the position as needed

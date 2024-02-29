@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_light_al_noor/features/Hadith/hadith_screen.dart';
 import 'package:the_light_al_noor/global/colors.dart';
 import 'package:the_light_al_noor/main_screen/home_screen.dart';
 
@@ -62,7 +63,7 @@ class MySplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (c) => const HomeScreen()),
+                      MaterialPageRoute(builder: (c) => HadithScreen()),
                     );
                   },
                   icon: const Icon(Icons.arrow_forward_ios_rounded),
