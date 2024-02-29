@@ -1,11 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:the_light_al_noor/global/colors.dart';
-// import 'package:sellersapp/authentication/auth_screen.dart';
+import 'package:the_light_al_noor/main_screen/home_screen.dart';
+
+import '../design_elements/stars_painter.dart';
 
 class MySplashScreen extends StatelessWidget {
-  const MySplashScreen({Key? key}) : super(key: key);
+  const MySplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +13,21 @@ class MySplashScreen extends StatelessWidget {
       backgroundColor: primaryColor,
       body: Stack(
         children: [
-          Center(
-            child: Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/splah/alnoor.png'),
-                  fit: BoxFit.cover,
+          // Centered image container with adjusted top margin
+          Positioned(
+            top: 150,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Container(
+                width: 270,
+                height: 250,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/splash/alnoor.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -48,7 +54,7 @@ class MySplashScreen extends StatelessWidget {
                     fontSize: 50,
                     fontFamily: 'Jameel',
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(225, 255, 182, 23),
+                    color: Color(0xffF57170),
                   ),
                 ),
                 const SizedBox(height: 15),
@@ -56,19 +62,25 @@ class MySplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (c) => Container()),
+                      MaterialPageRoute(builder: (c) => const HomeScreen()),
                     );
                   },
-                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                  style: ButtonStyle(iconSize: MaterialStatePropertyAll(40.0),iconColor: MaterialStatePropertyAll(primaryColor2),),
+                  icon: const Icon(Icons.arrow_forward_ios_rounded),
+                  style: ButtonStyle(
+                    iconSize: MaterialStateProperty.all(40.0),
+                    iconColor: MaterialStateProperty.all(primaryColor2),
+                  ),
                 ),
+
               ],
             ),
           ),
           // Sprinkle stars
           Positioned.fill(
-            child: CustomPaint(
-              painter: StarsPainter(),
+            child: IgnorePointer(
+              child: CustomPaint(
+                painter: StarsPainter(),
+              ),
             ),
           ),
         ],
@@ -77,26 +89,3 @@ class MySplashScreen extends StatelessWidget {
   }
 }
 
-class StarsPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()..color = Colors.white;
-    final Random random = Random();
-    final double starSize = 2.0;
-    final double spaceBetweenStars = 20.0;
-
-    // Draw stars
-    for (double i = 0; i < size.width; i += spaceBetweenStars) {
-      for (double j = 0; j < size.height; j += spaceBetweenStars) {
-        if (random.nextInt(10) == 0) {
-          canvas.drawCircle(Offset(i, j), starSize, paint);
-        }
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
-  }
-}
