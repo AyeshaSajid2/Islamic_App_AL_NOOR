@@ -3,9 +3,6 @@ import 'package:the_light_al_noor/global/colors.dart';
 
 import 'home_screen_elements/date_screen.dart';
 import 'home_screen_elements/prayer_tracker.dart';
-import 'home_screen_elements/remaining_activity.dart';
-
-import 'home_screen_elements/bottom_navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,32 +11,64 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor2,
-      appBar: AppBar(
-       title: TodayScreen(),
-        backgroundColor: primaryColor,
-        // elevation: 40,
-      centerTitle: true,
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // Add spacing from the top
-
-          const Material(
-              elevation: 20,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(40),
-                bottomRight: Radius.circular(40),
-                topLeft: Radius.zero,
-                topRight: Radius.zero,
+          SizedBox(height: 5), // Add spacing from the top
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                // alignment: Alignment(5, 50) ,
+                height: 150, width: 125,
+                // margin: EdgeInsets.symmetric(horizontal: 2),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Material(
+                  elevation: 10,
+                  borderRadius: BorderRadius.circular(20),
+                  child: TodayScreen(),
+                ),
               ),
-              child: RemainingActivity()
 
+
+              Container(
+                // alignment: Alignment(5, 50) ,
+                height: 150, width: 125,
+                // margin: EdgeInsets.symmetric(horizontal: 2),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Material(
+                  elevation: 10,
+                  borderRadius: BorderRadius.circular(20),
+                  child: TodayScreen(),
+                ),
+              ),
+            ],
           ),
-
-          const SizedBox(height: 20), // Add spacing between widgets
+          SizedBox(height: 20), // Add spacing between widgets
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
+            margin: EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -48,22 +77,18 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 5,
-                  offset: const Offset(0, 3),
+                  offset: Offset(0, 3),
                 ),
               ],
             ),
             child: Material(
-              elevation: 40,
+              elevation: 10,
               borderRadius: BorderRadius.circular(20),
-              child: const PrayerTracker(),
+              child: PrayerTracker(),
             ),
           ),
         ],
       ),
-      bottomNavigationBar: const BottomNavBar(),
-
-   //     BottomAppBar(),
-
     );
   }
 }

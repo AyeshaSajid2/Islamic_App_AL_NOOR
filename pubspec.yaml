@@ -38,11 +38,6 @@ dependencies:
   flutter_svg: ^2.0.10+1
   intl: ^0.19.0
   hijri: ^3.0.0
-  adhan_dart: ^1.0.8
-  timezone: ^0.9.2
-  hadith: ^1.0.0
-  http: ^1.2.1
-  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

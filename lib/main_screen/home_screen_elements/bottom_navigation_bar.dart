@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:the_light_al_noor/features/Hadith/hadith_screen.dart';
-
-import '../home_screen.dart';
-
+import 'package:the_light_al_noor/global/colors.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -15,24 +12,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    Text('Quran', style: TextStyle(color: Colors.black)),
-    Text('Prayer', style: TextStyle(color: Colors.black)),
-    Text('Qibla', style: TextStyle(color: Colors.black)),
-    Text('More', style: TextStyle(color: Colors.black)),
+    Text('Home'),
+    Text('Quran'),
+    Text('Prayer'),
+    Text('Qibla'),
+    Text('More'),
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-  }
-
-  void _navigateToHomeScreen(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HadithScreen()),
-    );
   }
 
   @override
