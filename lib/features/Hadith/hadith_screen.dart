@@ -96,6 +96,7 @@ class _HadithScreenState extends State<HadithScreen> {
                         title: Text(
                           datum.title ?? 'No Title',
                           style: TextStyle(
+                            fontSize: 22.0,
                             fontFamily: 'jameel.ttf', // Use Jameel font
                           ),
                         ),
