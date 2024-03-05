@@ -44,6 +44,9 @@ dependencies:
   shimmer: ^3.0.0
   adhan_dart: ^1.0.8
   shared_preferences: ^2.2.2
+  hijri_picker: ^3.0.0
+  url_launcher: ^6.2.5
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
@@ -72,7 +75,20 @@ flutter:
     - assets/images/
     - assets/images/splash/alnoor.png
     - assets/images/praying_time/svg/
+    - assets/images/praying_time/svg/morning.svg
+    - assets/images/praying_time/svg/noon.svg
+    - assets/images/praying_time/svg/afternoon.svg
+    - assets/images/praying_time/svg/evening.svg
+    - assets/images/praying_time/svg/night.svg
+    - assets/images/png/bg.jpg
+    - assets/images/counter/
+    - assets/images/collection_icon/svg/
+    - assets/images/counter/bg1.jpg
+    - assets/images/png/
+#    - assets/images/png/home.jpg
+    - assets/images/png/home.jpg
 #    - images/a_dot_ham.jpeg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

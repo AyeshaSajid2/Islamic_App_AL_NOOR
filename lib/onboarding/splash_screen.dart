@@ -4,6 +4,7 @@ import 'package:the_light_al_noor/global/colors.dart';
 import 'package:the_light_al_noor/main_screen/home_screen.dart';
 
 import '../design_elements/stars_painter.dart';
+// import '../features/hijri_calender/src/hijri_calender_builder.dart';
 
 class MySplashScreen extends StatelessWidget {
   const MySplashScreen({super.key});
@@ -63,7 +64,7 @@ class MySplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (c) => HadithScreen()),
+                      MaterialPageRoute(builder: (c) => HomeScreen()),
                     );
                   },
                   icon: const Icon(Icons.arrow_forward_ios_rounded),
