@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../global/colors.dart';
+import '../../main_screen/home_screen_elements/bottom_navigation_bar.dart';
 import '../Quran/fetch_api.dart';
 import 'recitation_popup.dart';
 
@@ -115,6 +116,7 @@ class SelectNumOfSurah extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

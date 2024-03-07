@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:the_light_al_noor/features/Dua/dua_page.dart';
 import 'package:the_light_al_noor/features/PrayerTimings/prayer_timings.dart';
 import '../../features/Allah_name/name.dart';
 import '../../features/Hadith/hadith_screen.dart';
@@ -26,6 +27,7 @@ class Categories extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (c) => HadithScreen()));
                 }),
                 SubContainer(image: 'assets/images/collection_icon/svg/duas.svg', text: 'Dua', onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (c) => DuaPage()));
                   // Handle category 3 button tap
                 }),
                 SubContainer(image: 'assets/images/collection_icon/svg/tasbih.svg', text: 'Tasbeeh', onPressed: () {

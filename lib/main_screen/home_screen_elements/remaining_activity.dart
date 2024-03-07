@@ -135,6 +135,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_light_al_noor/features/PrayerTimings/prayer_timings.dart';
 import '../../features/PrayerTimings/prayer_time_service.dart';
+import '../../features/PrayerTimings/services/prayer_time_services.dart';
 import '../../global/colors.dart';
 
 class RemainingActivity extends StatefulWidget {

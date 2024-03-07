@@ -95,10 +95,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:the_light_al_noor/features/PrayerTimings/prayer_drawer.dart';
 
 import '../../../global/colors.dart';
 import 'custom_list_tile.dart';
 import 'prayer_time_service.dart';
+import 'services/prayer_time_services.dart';
 
 class PrayerTimesPage extends StatefulWidget {
   const PrayerTimesPage({Key? key}) : super(key: key);
@@ -156,6 +158,7 @@ class _PrayerTimesPageState extends State<PrayerTimesPage> {
         centerTitle: true,
         elevation: 40,
       ),
+      endDrawer: PrayerDrawer(),
       body: Stack(
         children: [
           // Background image
