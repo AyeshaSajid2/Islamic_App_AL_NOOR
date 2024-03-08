@@ -100,7 +100,6 @@ import 'package:the_light_al_noor/features/PrayerTimings/prayer_drawer.dart';
 import '../../../global/colors.dart';
 import 'custom_list_tile.dart';
 import 'prayer_time_service.dart';
-import 'services/prayer_time_services.dart';
 
 class PrayerTimesPage extends StatefulWidget {
   const PrayerTimesPage({Key? key}) : super(key: key);
