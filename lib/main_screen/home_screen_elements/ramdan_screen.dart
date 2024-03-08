@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:the_light_al_noor/main_screen/home_screen_elements/date_screen.dart';
 import '../../features/PrayerTimings/prayer_time_service.dart';
-import '../../features/PrayerTimings/services/prayer_time_services.dart';
 
 class RamzanPage extends StatefulWidget {
   const RamzanPage({Key? key}) : super(key: key);

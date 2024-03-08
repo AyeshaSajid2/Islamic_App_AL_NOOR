@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:the_light_al_noor/global/colors.dart';
 import 'count_screen.dart'; // Import the CountScreen
 
 class TasbeehScreen extends StatefulWidget {
@@ -33,9 +34,9 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: secondaryColor,
       appBar: AppBar(
-        backgroundColor: Color(0xffd6a75f),
+        backgroundColor: primaryColor,
         title: Text('Tasbeeh Screen'),
       ),
       body: SingleChildScrollView(
@@ -48,7 +49,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
                 'Your Tasbeeh:',
                 style: TextStyle(
                   fontSize: 16.0,
-                  color: Color(0xffe1b983),
+                  // color: Color(0xffe1b983),
                 ),
               ),
               SizedBox(height: 10.0),
@@ -77,7 +78,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
             _showAddTasbeehDialog(context);
           },
           child: Text('Add Tasbeeh', textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),
-          style: ButtonStyle(backgroundColor:  MaterialStateProperty.all(Color(0xffd6a75f)),),
+          style: ButtonStyle(backgroundColor:  MaterialStateProperty.all(primaryColor),),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -87,7 +88,7 @@ class _TasbeehScreenState extends State<TasbeehScreen> {
   Widget _buildTasbeehItem(String tasbeeh) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xffe1b983),
+        color: primaryColor,
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
