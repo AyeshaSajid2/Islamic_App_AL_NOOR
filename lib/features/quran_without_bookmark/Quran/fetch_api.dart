@@ -6,14 +6,15 @@ import 'package:the_light_al_noor/features/quran_without_bookmark/Quran/surah_pa
 import '../../../global/colors.dart';
 import '../../Api_data/models/quran_api_model.dart';
 import '../../Api_data/services/quran_api_services.dart';
+import '../../todo_screens/recitation_popup.dart';
 
 
-class QuranApi extends StatefulWidget {
+class QuranApiOrigin extends StatefulWidget {
   @override
-  _QuranApiState createState() => _QuranApiState();
+  _QuranApiOriginState createState() => _QuranApiOriginState();
 }
 
-class _QuranApiState extends State<QuranApi> {
+class _QuranApiOriginState extends State<QuranApiOrigin> {
   final QuranServices _quranService = QuranServices();
 
  Quran? _quranData; // Nullable Quran object
@@ -46,6 +47,20 @@ class _QuranApiState extends State<QuranApi> {
         appBar: AppBar(
           title: Text('Quran Data'),
           backgroundColor: primaryColor,
+
+        actions: [
+          IconButton(
+            icon: Icon(Icons.calculate),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RecitationTarget(),
+                ),
+              );
+            },
+          ),
+        ],
         ),
         body: _quranData != null
             ?

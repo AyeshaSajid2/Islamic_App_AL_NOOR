@@ -83,21 +83,22 @@ class _HadithScreenState extends State<HadithScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25), // Circular border
                         color: primaryColor, // Green background color
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Colors.grey.withOpacity(0.5),
+                        //     spreadRadius: 5,
+                        //     blurRadius: 7,
+                        //     offset: Offset(0, 3), // changes position of shadow
+                        //   ),
+                        // ],
                       ),
                       child: ListTile(
                         title: Text(
                           datum.title ?? 'No Title',
                           style: TextStyle(
                             fontSize: 22.0,
-                            fontFamily: 'jameel.ttf', // Use Jameel font
+                            fontFamily: 'jameel.ttf',
+                            color: Colors.white// Use Jameel font
                           ),
                         ),
                       ),

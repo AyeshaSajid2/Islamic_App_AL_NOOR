@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global/colors.dart';
+
 class CountScreen extends StatefulWidget {
   final String tasbeehName;
   final int tasbeehCount;
@@ -42,7 +44,7 @@ class _CountScreenState extends State<CountScreen> {
         ),
         elevation: 20,
         centerTitle: true,
-        backgroundColor: Color(0xffd6a75f),
+        backgroundColor: primaryColor,
       ),
       body: Column(
         children: [
@@ -62,7 +64,7 @@ class _CountScreenState extends State<CountScreen> {
                   ),
                   Positioned(
                     top: 20,
-                    right: 160,
+                    right: 250,
                     child: Container(
                       height: 80,
                       padding: EdgeInsets.all(10),
@@ -85,7 +87,7 @@ class _CountScreenState extends State<CountScreen> {
                   ),
                   Positioned(
                     bottom: 0,
-                    right: 160,
+                    right: 250,
                     child: Row(
                       children: [
                         IconButton(
@@ -130,7 +132,7 @@ class _CountScreenState extends State<CountScreen> {
                   ),
                   Positioned(
                     top: 80,
-                    right: 150,
+                    right: 250,
                     child: Container(
                       height: 40,
                       padding: EdgeInsets.all(10),

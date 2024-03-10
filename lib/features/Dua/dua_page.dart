@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:translator/translator.dart';
 
+import '../../design_elements/shimmer_effect.dart';
 import '../../global/colors.dart';
 import 'dua_model.dart';
 import 'repository.dart';
@@ -70,7 +71,7 @@ class _DuaPageState extends State<DuaPage> {
         builder: (context, AsyncSnapshot<List<Dua>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
-              child: CircularProgressIndicator(color: primaryColor),
+              child: ShimmerEffect(),
             );
           } else if (snapshot.hasError) {
             return Center(

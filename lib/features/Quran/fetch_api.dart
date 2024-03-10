@@ -6,12 +6,13 @@ import 'package:the_light_al_noor/design_elements/shimmer_effect.dart';
 import '../../global/colors.dart';
 import '../Api_data/models/quran_api_model.dart';
 import '../Api_data/services/quran_api_services.dart';
+import '../todo_screens/recitation_popup.dart';
 import 'surah_page.dart';
 
 class QuranApi extends StatefulWidget {
-  final int selectedNumber;
+  final int selectedNumber = 10;
 
-  QuranApi({required this.selectedNumber});
+  QuranApi({ selectedNumber});
 
   @override
   _QuranApiState createState() => _QuranApiState();
@@ -55,6 +56,19 @@ class _QuranApiState extends State<QuranApi> {
         appBar: AppBar(
           title: Text('Quran Data'),
           backgroundColor: primaryColor,
+            actions: [
+          IconButton(
+            icon: Icon(Icons.calculate),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RecitationTarget(),
+                ),
+              );
+            },
+          ),
+        ],
         ),
         body: _quranData != null
             ? ListView.builder(
@@ -119,7 +133,7 @@ class _QuranApiState extends State<QuranApi> {
       MaterialPageRoute(
         builder: (context) => SurahPage(
           surah: surah,
-          selectedNumber: widget.selectedNumber,
+          // selectedNumber: widget.selectedNumber,
           onPercentageCalculated: (double percentage) {
             setState(() {
               _surahProgressMap[surah.name] = percentage / 100.0;

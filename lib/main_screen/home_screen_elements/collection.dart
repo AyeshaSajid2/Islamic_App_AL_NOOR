@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:the_light_al_noor/features/Dua/dua_page.dart';
 import 'package:the_light_al_noor/features/PrayerTimings/prayer_timings.dart';
+import 'package:the_light_al_noor/features/Quran/fetch_api.dart';
 import '../../features/Allah_name/name.dart';
 import '../../features/Hadith/hadith_screen.dart';
 import '../../features/quran_without_bookmark/Quran/fetch_api.dart';

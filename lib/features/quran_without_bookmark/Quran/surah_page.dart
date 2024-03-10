@@ -17,6 +17,7 @@ class SurahPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(surah.name),
         backgroundColor: secondaryColor,
+      centerTitle: true,
       ),
       body: ListView.builder(
         itemCount: surah.ayahs.length,

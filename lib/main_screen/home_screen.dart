@@ -71,21 +71,21 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 20),
               _buildContainer(
                 context,
-                'Ghusal',
+                'Ghusal Sunnah',
                 'assets/images/png/ghusal.jpg',
                     () => _showGhusalSteps(context),
               ),
               SizedBox(height: 20),
               _buildContainer(
                 context,
-                'Wudu',
+                'Wudu Sunnah',
                 'assets/images/png/wudu.jpg',
                     () => _showWuduSteps(context),
               ),
               SizedBox(height: 20),
               _buildContainer(
                 context,
-                'Rakat',
+                'Rakaat',
                 'assets/images/png/rakaat.jpeg',
                     () => _showRakatScreen(context),
               ),
@@ -142,6 +142,7 @@ class HomeScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return Container(
+          color: primaryColor,
           padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
@@ -149,7 +150,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   'Ghusal Steps',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: secondaryColor),
                 ),
                 SizedBox(height: 10),
                 Text(
@@ -163,7 +164,7 @@ class HomeScreen extends StatelessWidget {
 7) Starting from the right side, pour water on the whole body. Do the same at the left side and then the entire body. Do this three times each and make certain that no area is left dry and thoroughly rub your hands all over the body while washing.
 8) After the Ghusl, step away from the area and wash your right feet and then the left feet. But, if your feet have been washed during the process, then there is no need to wash them again.
 9) Dry your body with a clean towel and dress up.''',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: secondaryColor),
                 ),
               ],
             ),
@@ -178,6 +179,7 @@ class HomeScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return Container(
+          color: primaryColor,
           padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
@@ -185,19 +187,19 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   'Sunnah way of making Wudu',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: secondaryColor, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10),
-                Image.asset(
-                  'assets/images/png/wudu_icon.jpg',
-                  width: double.infinity,
-                  height: 200,
-                  fit: BoxFit.cover,
-                ),
+                // SizedBox(height: 10),
+                // Image.asset(
+                //   'assets/images/png/wudu_icon.jpg',
+                //   width: double.infinity,
+                //   height: 200,
+                //   fit: BoxFit.cover,
+                // ),
                 SizedBox(height: 10),
                 Text(
                   'Wudu Steps:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: secondaryColor),
                 ),
                 SizedBox(height: 10),
                 Text(
@@ -211,7 +213,7 @@ class HomeScreen extends StatelessWidget {
 8) Wipe your head once, using wet hands from the front to the back, and back to the front.
 9) Clean your ears once, using the index fingers to wipe inside and thumbs outside.
 10) Finally, wash your feet up to the ankles, ensuring water reaches between the toes, three times each.''',
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16, color: secondaryColor),
                 ),
               ],
             ),
@@ -237,13 +239,13 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 SingleChildScrollView( // Make the image scrollable
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.vertical,
                   child: Row(
                     children: [
                       Image.asset(
                         'assets/images/png/prayer.jpeg',
-                        width: 400, // Adjust width as needed
-                        height: 200, // Adjust height as needed
+                        width: 380, // Adjust width as needed
+                        height: 180, // Adjust height as needed
                         fit: BoxFit.cover,
                       ),
                     ],

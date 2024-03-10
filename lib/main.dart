@@ -4,6 +4,7 @@ import 'package:the_light_al_noor/main_screen/home_screen.dart';
 import 'package:the_light_al_noor/onboarding/splash_screen.dart';
 
 import 'features/PrayerTimings/prayer_timings.dart';
+import 'features/Quran/fetch_api.dart';
 import 'features/todo_screens/surah_selection_screen.dart';
 
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/home': (context) => HomeScreen(),
-        '/quran': (context) => SelectNumOfSurah(),
+        '/quran': (context) => QuranApi(selectedNumber: 10,),
         '/prayer': (context) =>
             PrayerTimesPage(),
         '/qibla': (context) => Scaffold(),

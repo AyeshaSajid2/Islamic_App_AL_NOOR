@@ -9,12 +9,12 @@ import 'surah_slider.dart';
 
 class SurahPage extends StatefulWidget {
   final Surah surah;
-  final int selectedNumber;
+  final int selectedNumber = 10;
   final void Function(double) onPercentageCalculated;
 
   const SurahPage({
     required this.surah,
-    required this.selectedNumber,
+    // required this.selectedNumber,
     required this.onPercentageCalculated,
   });
 
@@ -70,7 +70,7 @@ class _SurahPageState extends State<SurahPage> {
           widget.surah.name,
           // backgroundColor: clickedAyahsIndexes.length == widget.selectedNumber ? Colors.green : primaryColor,
           style: const TextStyle(color: Colors.white),
-        ),
+                 ),
         backgroundColor: primaryColor,
         centerTitle: true,
       ),
