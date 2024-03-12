@@ -4,6 +4,7 @@ import 'package:the_light_al_noor/global/colors.dart';
 import 'package:the_light_al_noor/main_screen/home_screen_elements/remaining_activity.dart';
 import 'home_screen_elements/collection.dart';
 import 'home_screen_elements/date_screen.dart';
+import 'home_screen_elements/dua_phly_ashray.dart';
 import 'home_screen_elements/prayer_tracker.dart';
 import 'home_screen_elements/ramdan_screen.dart';
 
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate([
               RemainingActivity(),
+              // FirstAshraDua(),
               SizedBox(height: 20), // Add spacing between widgets
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -88,6 +90,27 @@ class HomeScreen extends StatelessWidget {
                   child: PrayerTracker(),
                 ),
               ),
+              SizedBox(height: 20,),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Material(
+                  borderRadius: BorderRadius.circular(20),
+                  child: FirstAshraDua(),
+                ),
+              ),
+              // FirstAshraDua(),
               SizedBox(height: 20),
               _buildContainer(
                 context,
@@ -169,6 +192,10 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  'Sunnah way of making ghusal',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: secondaryColor),
+                ),
+                Text(
                   'Ghusal Steps',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: secondaryColor),
                 ),
@@ -249,15 +276,16 @@ class HomeScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20),
+            color: primaryColor,
+            padding: EdgeInsets.all(50),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  'Rakat',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 10),
+                // Text(
+                //   'Rakat',
+                //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                // ),
+                // SizedBox(height: 10),
                 SingleChildScrollView( // Make the image scrollable
                   scrollDirection: Axis.vertical,
                   child: Row(
@@ -265,8 +293,8 @@ class HomeScreen extends StatelessWidget {
                       Image.asset(
                         'assets/images/png/prayer.jpeg',
                         width: 380, // Adjust width as needed
-                        height: 180, // Adjust height as needed
-                        fit: BoxFit.cover,
+                        height: 350, // Adjust height as needed
+                        // fit: BoxFit.cover,
                       ),
                     ],
                   ),

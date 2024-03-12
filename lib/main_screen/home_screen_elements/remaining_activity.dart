@@ -41,7 +41,7 @@ class _RemainingActivityState extends State<RemainingActivity> {
           Opacity(
             opacity: 0.45, // Adjust the opacity value as needed
             child: Image.asset(
-              'assets/images/png/home.jpg', // Replace with your image asset path
+              'assets/images/png/bg2.png', // Replace with your image asset path
               fit: BoxFit.cover,
               width: double.infinity,
               height: 200, // Adjust the height of the image as needed

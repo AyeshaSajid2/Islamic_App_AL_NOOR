@@ -28,19 +28,20 @@ class _RamzanPageState extends State<RamzanPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.all(10.0),
-        padding: EdgeInsets.all(10.0),
-        decoration: BoxDecoration(
-          //border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10.0),
-        ),
+    return Container(
+      margin: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: Center(
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Ramdan Special", style: TextStyle(fontSize: 22),),
+            Text(
+              "Ramdan Special",
+              style: TextStyle(fontSize: 22),
+            ),
             Text(
               'Sehar: ${DateFormat('hh:mm a').format(prayerTimesService.fajar)}',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
