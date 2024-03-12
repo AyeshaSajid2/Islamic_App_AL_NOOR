@@ -1,6 +1,6 @@
 # the_light_al_noor
 
-A new Flutter project.
+A new Flutter project. Project is basically an islamic with features like Prayer Timing, sehar o aftar, daily dua's, quran and Hades etc
 
 ## Getting Started
 
