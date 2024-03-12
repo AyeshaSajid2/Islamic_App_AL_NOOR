@@ -65,6 +65,26 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Material(
                   borderRadius: BorderRadius.circular(20),
+                  child: const RamzanPage(),
+                ),
+              ),
+              SizedBox(height: 20,),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Material(
+                  borderRadius: BorderRadius.circular(20),
                   child: PrayerTracker(),
                 ),
               ),
