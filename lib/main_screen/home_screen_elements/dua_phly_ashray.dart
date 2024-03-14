@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
-class FirstAshraDua extends StatelessWidget {
+class FirstAshraDua extends StatefulWidget {
+  @override
+  State<FirstAshraDua> createState() => _FirstAshraDuaState();
+}
+
+class _FirstAshraDuaState extends State<FirstAshraDua> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +28,7 @@ class FirstAshraDua extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(10.0),
               color: Colors.black.withOpacity(0.5),
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:the_light_al_noor/features/Dua/dua_page.dart';
 import 'package:the_light_al_noor/features/PrayerTimings/prayer_timings.dart';
 import 'package:the_light_al_noor/features/Quran/fetch_api.dart';
+import 'package:the_light_al_noor/global/colors.dart';
 import '../../features/Allah_name/name.dart';
 import '../../features/Hadith/hadith_screen.dart';
 import '../../features/quran_without_bookmark/Quran/fetch_api.dart';
@@ -12,6 +13,7 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: primaryColor2,
       padding: EdgeInsets.all(16.0),
       height: MediaQuery.of(context).size.height * 0.3,
       child: Column(

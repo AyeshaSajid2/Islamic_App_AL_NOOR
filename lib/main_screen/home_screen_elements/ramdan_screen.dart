@@ -1,73 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:the_light_al_noor/main_screen/home_screen_elements/date_screen.dart';
-import '../../features/PrayerTimings/prayer_time_service.dart';
+import 'package:flutter_alarm_clock/flutter_alarm_clock.dart';
+import 'package:the_light_al_noor/features/alarm/sehar_iftar_alarm.dart';
 
-class RamzanPage extends StatefulWidget {
-  const RamzanPage({Key? key}) : super(key: key);
+import '../../global/colors.dart';
+
+class MyCard extends StatefulWidget {
+  final String time;
+  final String title;
+
+  MyCard({required this.time, required this.title});
 
   @override
-  _RamzanPageState createState() => _RamzanPageState();
+  State<MyCard> createState() => _MyCardState();
 }
 
-class _RamzanPageState extends State<RamzanPage> {
-  final prayerTimesService = PrayerTimesService();
-  bool fajrNotification = false;
-  bool maghribNotification = false;
+class _MyCardState extends State<MyCard> {
+  bool switchValue = false;
+  late DateTime iftarTime;
+  late DateTime saharTime;
+
 
   @override
   void initState() {
     super.initState();
-    loadPrayerTimes();
+    initializePrayerTimes();
   }
 
-  Future<void> loadPrayerTimes() async {
+  Future<void> initializePrayerTimes() async {
     await prayerTimesService.fetchPrayerTimes();
-    setState(() {}); // Trigger a rebuild after fetching prayer times
-  }
+    setState(() {
+      iftarTime = prayerTimesService.maghrib;
+      saharTime = prayerTimesService.fajar.subtract(Duration(hours: 2));
 
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10.0),
-      padding: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: Center(
+    return Card(
+      color: primaryColor,
+      child: Container(
+        height: 150,
+        width: 150,
+        // padding: EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                Icon(Icons.wb_twilight, size: 30),
+                SizedBox(width: 10),
+                Switch(
+                  value: switchValue,
+                  onChanged: (bool value) async {
+                    setState(() {
+                      switchValue = value;
+                    });
+                    print("alarm print here");
+
+                    if (value) {
+                      if (widget.title == "Sahar") {
+                        saharAlarm();
+                      } else {
+                        iftarAlarm();
+                      }
+                    } else {
+                      FlutterAlarmClock.showAlarms();
+                    }
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 5),
             Text(
-              "Ramdan Special",
-              style: TextStyle(fontSize: 22),
+              "${widget.time}",
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
-            Text(
-              'Sehar: ${DateFormat('hh:mm a').format(prayerTimesService.fajar)}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            Switch(
-              value: fajrNotification,
-              onChanged: (value) {
-                setState(() {
-                  fajrNotification = value;
-                  // Add code to handle notification
-                });
-              },
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Aftar: ${DateFormat('hh:mm a').format(prayerTimesService.maghrib)}',
-              style: TextStyle(fontSize: 18),
-            ),
-            Switch(
-              value: maghribNotification,
-              onChanged: (value) {
-                setState(() {
-                  maghribNotification = value;
-                  // Add code to handle notification
-                });
-              },
+            SizedBox(height: 5),
+            Row(
+              children: [
+                Text(
+                  "${widget.title} Time",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(width: 20),
+                ImageIcon(
+                  AssetImage("assets/images/png/icon2_iftar.png"),
+                  size: 30,
+                ),
+              ],
             ),
           ],
         ),

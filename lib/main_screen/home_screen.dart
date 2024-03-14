@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:the_light_al_noor/design_elements/shimmer_effect.dart';
 import 'package:the_light_al_noor/global/colors.dart';
 import 'package:the_light_al_noor/main_screen/home_screen_elements/remaining_activity.dart';
 import 'home_screen_elements/collection.dart';
@@ -8,28 +7,74 @@ import 'home_screen_elements/dua_phly_ashray.dart';
 import 'home_screen_elements/prayer_tracker.dart';
 import 'home_screen_elements/ramdan_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   final String? selectedAyah;
 
   const HomeScreen({Key? key, this.selectedAyah}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late String seharTime;
+  late String iftarTime;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    initializePrayerTimes();
+  }
+
+  Future<void> initializePrayerTimes() async {
+    try {
+      await prayerTimesService.fetchPrayerTimes();
+      setState(() {
+        int seharHour = prayerTimesService.fajar.hour - 2;
+        int seharMin = prayerTimesService.fajar.minute;
+        int iftarHour = prayerTimesService.maghrib.hour;
+        int iftarMin = prayerTimesService.maghrib.minute;
+
+        seharTime = '$seharHour : ${seharMin.toString().padLeft(2, '0')}';
+        iftarTime = '$iftarHour : ${iftarMin.toString().padLeft(2, '0')}';
+        _isLoading = false; // Prayer times loaded, set isLoading to false
+      });
+    } catch (error) {
+      // Handle error, show error message or retry option
+      print('Error loading prayer times: $error');
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: secondaryColor,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_left_rounded,
+                size: 40,
+                color: Colors.white,
+              ),
+            ),
             title: TodayScreen(),
             elevation: 20,
             backgroundColor: primaryColor,
             centerTitle: true,
             pinned: true,
           ),
+          // SizedBox(height: 20,),
           SliverList(
+
             delegate: SliverChildListDelegate([
+              SizedBox(height: 20), // Add spacing between widgets
               RemainingActivity(),
-              // FirstAshraDua(),
               SizedBox(height: 20), // Add spacing between widgets
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -38,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.white.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
                       offset: Offset(0, 3),
@@ -52,22 +97,29 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Material(
-                  borderRadius: BorderRadius.circular(20),
-                  child: const RamzanPage(),
+                // margin: EdgeInsets.symmetric(horizontal: 20),
+                // decoration: BoxDecoration(
+                //   color: Colors.white,
+                //   borderRadius: BorderRadius.circular(20),
+                //   boxShadow: [
+                //     BoxShadow(
+                //       color: Colors.grey.withOpacity(0.5),
+                //       spreadRadius: 2,
+                //       blurRadius: 5,
+                //       offset: Offset(0, 3),
+                //     ),
+                //   ],
+                // ),
+                // // child: Material(
+                // //   borderRadius: BorderRadius.circular(20),
+                // //   // child: const RamzanPage(),
+                // // ),
+                child: Column(
+                    children: [
+                      MyCard(time: seharTime, title: "Sehar"),
+                      MyCard(time: iftarTime, title: "Iftar")
+                    ],
+
                 ),
               ),
               SizedBox(height: 20,),
@@ -306,5 +358,4 @@ class HomeScreen extends StatelessWidget {
       },
     );
   }
-
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../../global/colors.dart';
 // Import the intl package for date formatting
 
 class TodayScreen extends StatelessWidget {
@@ -11,7 +13,11 @@ class TodayScreen extends StatelessWidget {
     String formattedDate = DateFormat('EEEE, d MMMM yyyy').format(now);
     return Text(
         formattedDate, // Display formatted date
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black), // Adjust text style
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+          color: secondaryColor,
+        ), // Adjust text style
       );
   }
 }
