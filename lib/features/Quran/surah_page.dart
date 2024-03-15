@@ -69,10 +69,24 @@ class _SurahPageState extends State<SurahPage> {
         title: Text(
           widget.surah.name,
           // backgroundColor: clickedAyahsIndexes.length == widget.selectedNumber ? Colors.green : primaryColor,
-          style: const TextStyle(color: Colors.white),
-                 ),
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: secondaryColor,
+          ),
+        ),
         backgroundColor: primaryColor,
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_left_rounded,
+            size: 40,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Column(
         children: [

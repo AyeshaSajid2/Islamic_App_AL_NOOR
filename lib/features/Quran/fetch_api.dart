@@ -52,13 +52,29 @@ class _QuranApiState extends State<QuranApi> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         backgroundColor: secondaryColor,
         appBar: AppBar(
-          title: Text('Quran Data'),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_left_rounded,
+              size: 40,
+              color: Colors.white,
+            ),
+          ),
+          title: Text('Quran Data', style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: secondaryColor,
+          ),),
           backgroundColor: primaryColor,
             actions: [
           IconButton(
-            icon: Icon(Icons.calculate),
+            icon: Icon(Icons.calculate, color: Colors.white,),
             onPressed: () {
               Navigator.push(
                 context,

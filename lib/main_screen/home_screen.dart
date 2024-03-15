@@ -3,7 +3,7 @@ import 'package:the_light_al_noor/global/colors.dart';
 import 'package:the_light_al_noor/main_screen/home_screen_elements/remaining_activity.dart';
 import 'home_screen_elements/collection.dart';
 import 'home_screen_elements/date_screen.dart';
-import 'home_screen_elements/dua_phly_ashray.dart';
+import 'more_components/ramzan_dua.dart';
 import 'home_screen_elements/prayer_tracker.dart';
 import 'home_screen_elements/ramdan_screen.dart';
 
@@ -97,33 +97,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 20,),
               Container(
-                // margin: EdgeInsets.symmetric(horizontal: 20),
-                // decoration: BoxDecoration(
-                //   color: Colors.white,
-                //   borderRadius: BorderRadius.circular(20),
-                //   boxShadow: [
-                //     BoxShadow(
-                //       color: Colors.grey.withOpacity(0.5),
-                //       spreadRadius: 2,
-                //       blurRadius: 5,
-                //       offset: Offset(0, 3),
-                //     ),
-                //   ],
-                // ),
-                // // child: Material(
-                // //   borderRadius: BorderRadius.circular(20),
-                // //   // child: const RamzanPage(),
-                // // ),
-                child: Column(
+                // alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MyCard(time: seharTime, title: "Sehar"),
                       MyCard(time: iftarTime, title: "Iftar")
                     ],
-
                 ),
               ),
               SizedBox(height: 20,),
               Container(
+                // color: primaryColor2,
                 margin: EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -138,31 +123,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 child: Material(
+                  color: primaryColor2,
                   borderRadius: BorderRadius.circular(20),
                   child: PrayerTracker(),
                 ),
               ),
-              SizedBox(height: 20,),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Material(
-                  borderRadius: BorderRadius.circular(20),
-                  child: FirstAshraDua(),
-                ),
-              ),
-              // FirstAshraDua(),
               SizedBox(height: 20),
               _buildContainer(
                 context,

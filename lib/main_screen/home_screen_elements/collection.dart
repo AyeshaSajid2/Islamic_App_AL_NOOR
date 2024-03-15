@@ -8,6 +8,7 @@ import '../../features/Allah_name/name.dart';
 import '../../features/Hadith/hadith_screen.dart';
 import '../../features/quran_without_bookmark/Quran/fetch_api.dart';
 import '../../features/tasbeeh_counter/tasbeeh_screens/tasbeeh_screen.dart';
+import '../more_components/ramzan_dua.dart';
 
 class Categories extends StatelessWidget {
   @override
@@ -59,6 +60,8 @@ class Categories extends StatelessWidget {
                   // Handle category 7 button tap
                 }),
                 SubContainer(image: 'assets/images/collection_icon/svg/other.svg', text: 'More', onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (c) => FirstAshraDua()));
+
                   // Handle category 8 button tap
                 }),
               ],

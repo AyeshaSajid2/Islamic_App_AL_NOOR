@@ -49,13 +49,29 @@ class _HadithScreenState extends State<HadithScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor2, // Set background color to cyan
+      backgroundColor: secondaryColor, // Set background color to cyan
       appBar: AppBar(
-        title: Text('Hadith Screen'),backgroundColor: primaryColor,
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_left_rounded,
+            size: 40,
+            color: Colors.white,
+          ),
+        ),
+        title: Text('Hadith Screen',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),backgroundColor: primaryColor,
         actions: [
           // Language selection button
           IconButton(
-            icon: Icon(Icons.language),
+            icon: Icon(Icons.language, color: Colors.white,),
             onPressed: () {
               _showLanguageMenu(context);
             },
