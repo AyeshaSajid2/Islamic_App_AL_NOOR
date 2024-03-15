@@ -105,7 +105,7 @@ class _DuaPageState extends State<DuaPage> {
               ),
               child: ListView.separated(
                 separatorBuilder: (context, index) => SizedBox(height: 5),
-                itemCount: snapshot.data!.length,
+                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   final data = snapshot.data![index];
                   return FutureBuilder<String>(
