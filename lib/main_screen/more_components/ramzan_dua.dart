@@ -21,86 +21,93 @@ class AshraDuaWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.2),
-            blurRadius: 5.0,
-            spreadRadius: 2.0,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Opacity(
-                opacity: 0.45,
-                child: Image.asset(
-                  imagePath,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 200,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(10.0),
-                color: Colors.black.withOpacity(0.2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      duaText,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      duaTranslation,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      duaTranslationUrdu,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+      padding: const EdgeInsets.all(10.0), // Apply padding here
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(40.0),
+        child: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                blurRadius: 5.0,
+                spreadRadius: 2.0,
+                offset: const Offset(0, 3),
               ),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            color: primaryColor2,
-            child: Text(
-              customText,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Opacity(
+                    opacity: 0.2,
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: 200,
+                    ),
+                  ),
+                  Container(
+                    color: Colors.black.withOpacity(0.2),
+                    child: Padding( // Apply padding here
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            duaText,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            duaTranslation,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          const SizedBox(height: 5.0),
+                          Text(
+                            duaTranslationUrdu,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                color: Colors.white,
+                child: Text(
+                  customText,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(height: 15,),
+            ],
           ),
-          SizedBox(height: 15,),
-        ],
+        ),
       ),
     );
   }
@@ -120,7 +127,7 @@ class FirstAshraDua extends StatelessWidget {
       body: ListView(
         children: const [
           AshraDuaWidget(
-            imagePath: 'assets/images/ramadan_images/dua_phla_ashray.jpg',
+            imagePath: 'assets/images/ramadan_images/top.jpg',
             duaText: 'وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ',
             duaTranslation:
             'I Intend to keep the fast for month of Ramadan',
@@ -139,7 +146,7 @@ class FirstAshraDua extends StatelessWidget {
           ),
 
           AshraDuaWidget(
-            imagePath: 'assets/images/png/top.jpg',
+            imagePath: 'assets/images/ramadan_images/dua2.jpg',
             duaText: 'ذَھَبَ الظَّمَأُوَابْتَلَّتِ الْعُرُوْقُ وَثَبَتَ الْاَجْرُ اِنْ شَآئَ اللّٰہُ۔َ',
             duaTranslationUrdu:
             'پیاس جاتی رہی اور رگیں تر ہوگئیں اور ثواب ثابت ہوگیا ان شاء اللہ تعالیٰ۔۔',
@@ -149,7 +156,7 @@ class FirstAshraDua extends StatelessWidget {
           ),
 
           AshraDuaWidget(
-            imagePath: 'assets/images/png/top.jpg',
+            imagePath: 'assets/images/ramadan_images/dua3 (1).jpg',
             duaText: 'اَفْطَرَعِنْدَ کُمُ الصَّآئِمُوْنَ وَاَکَلَ طَعَامَکُمُ الْابَرَارُ وَصَلَّتْ عَلَیْکُمُ الْمَلَآئِکَةُ ۔َ',
             duaTranslationUrdu:
             'افطارکیا کریں تمہارے یہاں روزہ دار لوگ اور کھایا کریں تمہارا کھانا نیک لوگ اور رحمت کی دعا کیا کریں تمہارے لئے فرشتے ۔',
@@ -159,7 +166,7 @@ class FirstAshraDua extends StatelessWidget {
           ),
 
           AshraDuaWidget(
-            imagePath: 'assets/images/png/top.jpg',
+            imagePath: 'assets/images/ramadan_images/dua3 (2).jpg',
             duaText: 'يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيث',
             duaTranslationUrdu:
             'پیاس جاتی رہی اور رگیں تر ہوگئیں اور ثواب ثابت ہوگیا ان شاء اللہ تعالیٰ۔۔',
@@ -169,7 +176,7 @@ class FirstAshraDua extends StatelessWidget {
           ),
 
           AshraDuaWidget(
-            imagePath: 'assets/images/png/top.jpg',
+            imagePath: 'assets/images/ramadan_images/dua3 (3).jpg',
             duaText: 'اَسْتَغْفِرُ اللہَ رَبِّی مِنْ کُلِّ زَنْبٍ وَّ اَتُوْبُ اِلَیْہِ',
             duaTranslationUrdu:
             'پیاس جاتی رہی اور رگیں تر ہوگئیں اور ثواب ثابت ہوگیا ان شاء اللہ تعالیٰ۔۔',
@@ -180,7 +187,7 @@ class FirstAshraDua extends StatelessWidget {
 
 
           AshraDuaWidget(
-            imagePath: 'assets/images/png/top.jpg',
+            imagePath: 'assets/images/ramadan_images/top.jpg',
             duaText: 'اَللَّهُمَّ أَجِرْنِي مِنَ النَّارِ',
             duaTranslationUrdu:
             'پیاس جاتی رہی اور رگیں تر ہوگئیں اور ثواب ثابت ہوگیا ان شاء اللہ تعالیٰ۔۔',
